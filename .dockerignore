@@ -1,0 +1,8 @@
+.git
+.claude
+.env
+*.ipynb
+*.md
+output/
+__pycache__/
+*.pyc

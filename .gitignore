@@ -1,2 +1,29 @@
+# Environment variables (contains secrets)
 .env
+
+# Claude Code config
 /.claude
+
+# Docker build cache
+.docker-build-cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+output/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# cached
+.ruff_cache/
+.mypy_cache/
+.cache/

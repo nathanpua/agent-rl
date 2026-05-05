@@ -1,0 +1,16 @@
+# Hotfix deps — edit this file to fix dependency conflicts on the instance.
+# Only this layer rebuilds when deps change (~1-3 min vs ~60 min full rebuild).
+
+# weave needs TransportConnectionFailed which only exists in gql>=4.0.0
+# (ART's deps install gql==3.4.1 which doesn't have it)
+# See: https://github.com/OpenPipe/ART/issues/632
+gql>=4.0.0
+
+# NOTE: mergekit and llm-blender are NOT installed here because:
+# - llm-blender is incompatible with transformers>=5.0 (removed TRANSFORMERS_CACHE)
+# - mergekit/llm-blender downgrade pydantic, accelerate, safetensors, click
+#   causing cascading conflicts with vllm, litellm, unsloth, etc.
+# Instead, trl's callbacks.py is patched to make these imports non-fatal.
+
+# peft requires torchao>=0.16.0 but ART installs 0.15.0 (also incompatible with torch 2.10)
+torchao>=0.16.0
